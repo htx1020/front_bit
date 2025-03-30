@@ -24,4 +24,5 @@ build/
 
 # System files
 .DS_Store
-Thumbs.db
+*.db
+backend/migrations/versions/*.py
