@@ -1,0 +1,5 @@
+Generic single-database configuration.
+初次使用：alembic init migrations
+
+alembic revision --autogenerate -m "add mcap table"
+alembic upgrade head

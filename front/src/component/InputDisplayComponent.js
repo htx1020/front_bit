@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../config';
 
 const InputDisplayComponent = () => {
     // 使用 useState 钩子来管理输入框的值和显示框的内容
@@ -8,7 +9,7 @@ const InputDisplayComponent = () => {
     // 处理提交按钮的点击事件
     const handleSubmit = async () => {
         try {
-            const response = await fetch('http://localhost:8000/items/', {
+            const response = await fetch(`${API_BASE_URL}/items/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
