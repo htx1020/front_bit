@@ -1,0 +1,28 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  # 新增后台启动任务
+  start-background:
+    cmds:
+      - >-
+        bash -c "source .venv/bin/activate &&
+        python --version &&
+        python backend/main.py"
+    desc: "启动后台程序(自动激活venv)"
+    
+  update-pip:
+    cmds:
+      - >-
+        bash -c "source .venv/bin/activate &&
+        uv pip install -r ./backend/requirement.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip"
+    desc: "更新pip"
